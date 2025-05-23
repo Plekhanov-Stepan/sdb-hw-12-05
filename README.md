@@ -30,6 +30,13 @@ or table_name = "store";
 `SUM(data_length)` `SUM(index_length)`
      4374528	         2392064
 
+```sql
+SELECT round(SUM(data_length)/(SUM(data_length) + SUM(index_length)) * 100, 2) as Tables_percentage, round(SUM(index_length)/(SUM(data_length) + SUM(index_length)) * 100, 2) as Index_percentage
+FROM INFORMATION_SCHEMA.TABLES
+WHERE table_schema = 'sakila';
+```
+<img src = "img/Screenshot_1.png" width=100%>
+
 
 ### Задание 2
 
